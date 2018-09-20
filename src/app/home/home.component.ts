@@ -8,12 +8,11 @@ declare var Chance: any; // for externals librairies
 })
 export class HomeComponent implements OnInit {
   array = [];
-  sum = 10;
-  throttle = 30;
+  sum = 8;
+  throttle = 300;
   scrollDistance = 1;
   scrollUpDistance = 2;
   direction = '';
-  modalOpen = false;
   chance: any;
 
   constructor() {
