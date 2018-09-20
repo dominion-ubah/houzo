@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <h1>Angular CLI v6 + Bootstrap & FontAwesome</h1>
+  <p>
+    In this tutorial you learn how to use Angular CLI v6 with Bootstrap and FontAwesome!
+  </p>
+</div>
+<h1 class="title well">
+    <section>
+    <small>items: {{sum}}, now triggering scroll: {{direction}}</small>
+    </section>
+  </h1>
+<div class="search-results"
+      infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScrollDown()"
+      (scrolledUp)="onUp()">
+  <p *ngFor="let i of array">
+    {{ i }}
+  </p>
+</div>
