@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HouzlistService } from '../shared/houzlist.service';
 
 declare var Chance: any; // for externals librairies
 @Component({
@@ -7,6 +8,7 @@ declare var Chance: any; // for externals librairies
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  data = []
   array = [];
   sum = 8;
   throttle = 300;
@@ -15,14 +17,23 @@ export class HomeComponent implements OnInit {
   direction = '';
   chance: any;
 
-  constructor() {
+  constructor(private _houzService:HouzlistService) {
     this.chance  = new Chance();
     this.appendItems(0, this.sum);
   }
 
 
   ngOnInit() {
-
+    this._houzService.getHouzData().subscribe(data => {
+      this.data = data.slice(0, 240);
+      console.log('list', this.data);
+    },
+    error => {
+      console.error(error);
+    },
+    ()=> {
+      console.log('doe');
+    })
   }
   
   addItems(startIndex, endIndex, _method) {
