@@ -11,7 +11,6 @@ declare var Chance: any; // for externals librairies
 export class HomeComponent implements OnInit {
   data = []
   array = [];
-  adder = 6;
   initVal:number;
   throttle = 100;
   scrollDistance = 1;
@@ -22,14 +21,14 @@ export class HomeComponent implements OnInit {
   constructor(private _houzService:HouzlistService) {
     // this.chance  = new Chance();
     // this.appendItems(0, this.sum);
-    this.determI();
+    this.determI(6);
   }
 
 
   ngOnInit() {
     this._houzService.getHouzData().subscribe(data => {
-      this.data = data.slice(0, 20);
-      console.log('list', this.array);
+      this.data = data.slice(0, 240);
+      console.log('list', this.data, this.array);
       
     },
     error => {
@@ -39,14 +38,14 @@ export class HomeComponent implements OnInit {
       console.log('doe');
       this.initVal = 6;
       if(this.array.length == 0) {
-        this.determI();
-        console.log("ran it", this.initVal, this.adder)
+        this.determI(6);
+        console.log("ran it", this.initVal)
       }
     })
   }
 
-determI(){
-  let finalVal = this.initVal + this.adder;
+determI(adder){
+  let finalVal = this.initVal + adder;
   this.popul(finalVal, this.data);
   this.initVal = finalVal; 
 
@@ -65,8 +64,63 @@ popul(finalVal, arr){
 
   onScrollDown (ev) {
     console.log('scrolled down!!', ev);
-    this.determI();    
-    this.direction = 'down'
+    this.determI(6);    
+    this.direction = 'down';
+
+  }
+
+  onType (ev) {
+    console.log('typed', ev);
+    if(this.array.length==0) {
+      this.determI(120); 
+    }
+       
+    this.direction = 'down';
+    
+  }
+
+  parseAlbToLoc(alb) {
+    let loc = '';
+    switch (alb ) {
+      case 1 :
+      loc = 'Lagos';
+      break;
+      case 2 :
+      loc = 'Ogun';
+      break;
+      case 3 :
+      loc = 'Oyo' ;
+      break;
+      case 4 :
+      loc = 'PH';
+      break;
+      case 5 :
+      loc = 'Abuja';
+      break;
+    default:
+        loc = '';
+    }
+    return loc
+    
+  }
+
+  parseColor(alb) {
+    let loc = '';
+    switch (alb ) {
+      case 1 :
+      loc = 'danger';
+      break;
+      case 2 :
+      loc = 'info';
+      break;
+      case 3 :
+      loc = 'warning' ;
+      break;
+    default:
+        loc = 'success';
+    }
+    return loc
+    
   }
   
   // onUp(ev) {

@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-  .fa-heart {
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}  
+p{
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 70% !important;
+  margin-top: -0.5em
+}
+.fa-heart {
     color: hotpink;
   }
 
@@ -24,13 +32,15 @@
 
   .card {
     background: #fff;
-    border-radius: 4px;
+    border-radius: 14px !important;
     display: inline-block;
-    height: 350px;
+    height: 360px;
     margin: 1rem;
     position: relative;
     width: 300px;
-    border-bottom: 1px solid lightskyblue;
+
+    border: none;
+    overflow: hidden;
   }
   
   .card-1 {

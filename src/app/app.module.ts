@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule }   from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SearchPipe} from './shared/search.pipe';
 
 import { UiModule } from './ui/ui.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,12 +18,14 @@ import { HouzlistService } from './shared/houzlist.service';
 @NgModule({
   declarations: [
     AppComponent,
+    SearchPipe,
     HomeComponent,
     HouseListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     NgbModule.forRoot(),
     UiModule,
     AppRoutingModule,

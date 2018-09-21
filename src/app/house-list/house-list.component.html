@@ -1,3 +1,14 @@
-<p>
-  house-list works!
-</p>
+<div class="row" style="height:75vh">
+  <div class="col-md-8" style="overflow-y:scroll; overflow-x: hidden;">
+  <img src="{{data.url}}" width="100%" alt="">
+  </div>
+  <div class="col-md-4">
+    <h3 style="font-weight:bold">
+      <span class="text-warning">Product: </span>{{data.title}}
+    </h3>
+    <img src="{{data.thumbnailUrl}}" alt="">
+    <br >
+    <h5 class="pt-2" >Location :{{parseAlbToLoc(data.albumId)}}</h5>
+    <h5 class="pt-2" >Id Number :{{data.id}}</h5>
+  </div>
+</div>

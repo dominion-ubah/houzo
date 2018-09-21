@@ -1,8 +1,10 @@
 <div class="jumbotron">
   <h1>Houz mega listings</h1>
+
   <p>
     In this tutorial you learn how to use Angular CLI v6 with Bootstrap and FontAwesome!
   </p>
+  <input  [(ngModel)]="searchText" (ngModelChange)="onType($event)" placeholder="search text goes here">
 </div>
 <div class="container">
     <div class="row search-results" 
@@ -10,15 +12,17 @@
       [infiniteScrollDistance]="scrollDistance"
       [infiniteScrollThrottle]="throttle"
       (scrolled)="onScrollDown()">
-      <div class="col-md-4" *ngFor="let s of array">
+      <div class="col-md-4" *ngFor="let s of array | search : searchText">
         <div class="card card-1 pb-5">
-            <img class="card-img-top" src="{{s.url}}" height="75% !important" alt="Card image cap">
-            <div class="" style=" position:absolute; right:30px; top:222px; background-color:antiquewhite; border-radius:50%; width: 35px; cursor: pointer; padding:0.4em 0.6em;" >
+            <img class="card-img-top" src="{{s.url}}" height="65% !important" alt="Card image cap">
+            <div class="" style=" position:absolute; right:25px; top:183px; background-color:antiquewhite; border-radius:50%; width: 35px; cursor: pointer; padding:0.4em 0.6em;" >
                 <i class="fa fa-heart " ></i>
             </div>
             
             <div class="card-body pb-5">
-              <h5 class="card-title text-warning pb-0" style="font-size:90%; width:90%; font-weight: bold; cursor: pointer;" routerLink="/house-list">{{s.title}}</h5>
+
+              <h5 class="card-title text-warning pb-0" style="font-size:90%; width:90%; font-weight: bold; cursor: pointer;"  routerLink="/house-list/{{s.id}}">{{s.title}}</h5>
+              <span class="badge badge-{{parseColor(s.albumId)}} " style="margin-top:-2em !important" >{{parseAlbToLoc(s.albumId)}}</span>
               <p class="card-text" style="font-size:80%">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               
             </div>
