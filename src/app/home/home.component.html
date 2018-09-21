@@ -4,14 +4,14 @@
   <p>
     In this tutorial you learn how to use Angular CLI v6 with Bootstrap and FontAwesome!
   </p>
-  <input  [(ngModel)]="searchText" (ngModelChange)="onType($event)" placeholder="search text goes here">
+  <input  [(ngModel)]="searchText" (change)="onScrollDown($event)" placeholder="search text goes here">
 </div>
 <div class="container">
     <div class="row search-results" 
     infinite-scroll
       [infiniteScrollDistance]="scrollDistance"
       [infiniteScrollThrottle]="throttle"
-      (scrolled)="onScrollDown()">
+      (scrolled)="onScrollDown($event)">
       <div class="col-md-4" *ngFor="let s of array | search : searchText">
         <div class="card card-1 pb-5">
             <img class="card-img-top" src="{{s.url}}" height="65% !important" alt="Card image cap">

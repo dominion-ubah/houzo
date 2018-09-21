@@ -11,6 +11,7 @@ declare var Chance: any; // for externals librairies
 export class HomeComponent implements OnInit {
   data = []
   array = [];
+  searchText = '';
   initVal:number;
   throttle = 100;
   scrollDistance = 1;

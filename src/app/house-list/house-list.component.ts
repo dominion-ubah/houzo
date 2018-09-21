@@ -8,7 +8,7 @@ import { HouzlistService } from '../shared/houzlist.service';
   styleUrls: ['./house-list.component.scss']
 })
 export class HouseListComponent implements OnInit {
-public data = [];
+public data;
   constructor(private _routeA: ActivatedRoute,
               private _housServ: HouzlistService) { }
 
