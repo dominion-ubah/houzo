@@ -1,21 +1,31 @@
 <div class="jumbotron">
-  <h1>Angular CLI v6 + Bootstrap & FontAwesome</h1>
+  <h1>Houz mega listings</h1>
   <p>
     In this tutorial you learn how to use Angular CLI v6 with Bootstrap and FontAwesome!
   </p>
 </div>
-<h1 class="title well">
-    <section>
-    <small>items: {{sum}}, now triggering scroll: {{direction}}</small>
-    </section>
-  </h1>
-<div class="search-results"
-      infinite-scroll
+<div class="container">
+    <div class="row search-results" 
+    infinite-scroll
       [infiniteScrollDistance]="scrollDistance"
-      [infiniteScrollUpDistance]="scrollUpDistance"
       [infiniteScrollThrottle]="throttle"
       (scrolled)="onScrollDown()">
-  <p *ngFor="let i of array">
-    {{ i }}
-  </p>
-</div>
+      <div class="col-md-4" *ngFor="let s of array">
+        <div class="card card-1 pb-5">
+            <img class="card-img-top" src="{{s.url}}" height="75% !important" alt="Card image cap">
+            <div class="" style=" position:absolute; right:30px; top:222px; background-color:antiquewhite; border-radius:50%; width: 35px; cursor: pointer; padding:0.4em 0.6em;" >
+                <i class="fa fa-heart " ></i>
+            </div>
+            
+            <div class="card-body pb-5">
+              <h5 class="card-title text-warning pb-0" style="font-size:90%; width:90%; font-weight: bold; cursor: pointer;" routerLink="/house-list">{{s.title}}</h5>
+              <p class="card-text" style="font-size:80%">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
