@@ -7,7 +7,12 @@ p{
   font-size: 70% !important;
   margin-top: -0.5em
 }
-.fa-heart {
+.ulike {
+  color: gray;
+  
+  }
+  .like {
+    
     color: hotpink;
   }
 
@@ -35,7 +40,7 @@ p{
     border-radius: 14px !important;
     display: inline-block;
     height: 360px;
-    margin: 1rem;
+    margin: 1rem 0;
     position: relative;
     width: 300px;
 

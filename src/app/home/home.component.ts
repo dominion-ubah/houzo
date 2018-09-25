@@ -9,6 +9,7 @@ declare var Chance: any; // for externals librairies
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  togglelike:boolean;
   data = []
   array = [];
   initVal:number;
@@ -43,7 +44,14 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-
+  togglelikeactio(i , e){
+    console.log(i, e)
+    if (this.togglelike) {
+      this.togglelike = false
+    }else {
+      this.togglelike = true;
+    }
+  }
 determI(adder){
   let finalVal = this.initVal + adder;
   this.popul(finalVal, this.data);
@@ -72,6 +80,7 @@ popul(finalVal, arr){
   onType (ev) {
     console.log('typed', ev);
     if(this.array.length==0) {
+      console.log('hehe',this.array)
       this.determI(120); 
     }
        
